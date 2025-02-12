@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aftasalon No.1</title>
+</head>
+<body>
+{% for item in aftosalon %}
+<!--{% for item in Car %}-->
+<div>
+    <p>{{item.title}}</p>
+    <p>{{item.context}}</p>
+    <p>{{item.created_ed}}</p>
+<!--    <p>{{item.model}}</p>-->
+<!--    <p>{{item.ot_kuchi}}</p>-->
+<!--    <p>{{item.narxi}}</p>-->
+<!--    <p>{{item.yili}}</p>-->
+
+</div>
+
+{% endfor %}
+</body>
+</html>
