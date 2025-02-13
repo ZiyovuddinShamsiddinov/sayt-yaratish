@@ -14,7 +14,7 @@ def index(request):
         "manzil":"Uzbekistan",
         "telefon":"+998965236514",
     }
-    return render(request, 'index.html', context={"data":db})
+    return render(request, 'News/index.html', context=context)
 #     news=News.objects.all()
 #
 #     context={
@@ -28,7 +28,7 @@ def index(request):
 #         "pisyun":"sredniy",
 #         "lichnaya infa":"bolshoy bolshoy sikret"
 #     }
-#     return render(request,'index.html',context=context)
+#     return render(request,'News/index.html',context=context)
 
 def index2(request):
     car = Car.objects.all()
@@ -42,4 +42,4 @@ def index2(request):
         "ot_kuchi": 1500,
         "model": "X11",
     }
-    return render(request, 'Car/index.html', context={"data":db})
+    return render(request, 'News/index.html', context=context)
