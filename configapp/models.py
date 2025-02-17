@@ -31,4 +31,3 @@ class Car(models.Model):
     narxi=models.CharField(max_length=50)
     yili=models.CharField(max_length=4)
 
-
