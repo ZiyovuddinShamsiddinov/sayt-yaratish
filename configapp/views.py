@@ -43,3 +43,16 @@ def index2(request):
         "model": "X11",
     }
     return render(request, 'News/index.html', context=context)
+
+# def category_afto(request,Aftosalon_id=1):
+#     aftosalon=Aftosalon.objects.filter(Aftosalon_id=Aftosalon_id)
+#
+#     context={
+#         "aftosalon":aftosalon,
+#         "title":"Aftosalon"
+#     }
+#
+#     return render(request, 'News/index.html', context=context)
+
+
+    
