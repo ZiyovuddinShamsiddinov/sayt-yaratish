@@ -1,58 +1,31 @@
-from django.http import HttpResponse
 from django.shortcuts import render
+
 from configapp.models import *
 
-def index(request):
-    aftosalon=Aftosalon.objects.all()
+def index0(request):
+    cars=Car.objects.all()
+    cars_model=Car_model.objects.all()
 
     context={
-        "aftosalon":aftosalon,
-        "title":"Aftosalon"
-    }
-    db={
-        "title":"Aftasalon",
-        "manzil":"Uzbekistan",
-        "telefon":"+998965236514",
-    }
-    return render(request, 'News/index.html', context=context)
-#     news=News.objects.all()
-#
-#     context={
-#         "news":news,
-#         "title":"News Title"
-#     }
-#     db={
-#         "name":"Usmon Xolmurodov",
-#         "phone":"+998933941209",
-#         "age":16,
-#         "pisyun":"sredniy",
-#         "lichnaya infa":"bolshoy bolshoy sikret"
-#     }
-#     return render(request,'News/index.html',context=context)
+    "cars":cars,
+    "cars_model":cars_model,
+}
+    return render(request,'News/index0.html',context=context)
 
-def index2(request):
-    car = Car.objects.all()
+def cars_model(request, model_id):
+    cars = Car.objects.filter(model_id=model_id)
+    cars_model=Car_model.objects.all()
+    context = {
+        "cars": cars,
+        "cars_model": cars_model,
+    }
+    return render(request, 'News/car_model.html', context=context)
+
+
+def car_about(request,model_id):
+    car = Car.objects.get(pk=model_id)
 
     context = {
-        "car": car,
-        "title": "Car"
+        "cars_about": car,
     }
-    db = {
-        "name": "BMW",
-        "ot_kuchi": 1500,
-        "model": "X11",
-    }
-    return render(request, 'News/index.html', context=context)
-
-# def category_afto(request,Aftosalon_id=1):
-#     aftosalon=Aftosalon.objects.filter(Aftosalon_id=Aftosalon_id)
-#
-#     context={
-#         "aftosalon":aftosalon,
-#         "title":"Aftosalon"
-#     }
-#
-#     return render(request, 'News/index.html', context=context)
-
-
-    
+    return render(request, 'car_new.html', context=context)

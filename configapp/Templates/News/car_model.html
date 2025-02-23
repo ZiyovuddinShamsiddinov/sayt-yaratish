@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Info News</title>
+    <title>Info Car</title>
 </head>
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Navbar</a>
@@ -14,7 +15,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/app/aftosalon/">Home</a>
+          <a class="nav-link active" aria-current="page" href="app/index">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Features</a>
@@ -32,71 +33,42 @@
 
 <div class="row">
   <div class="col-3">
-    <ul class="list-group text-center mt-4">
-    <li class="list-group-item active" aria-current="true">Aftosalon</li>
-    {% for item in aftosalon %}
-    <li class="list-group-item"><a href=" url 'aftosalon' item.pk ">{{item.title}}</a></li>
-    {% endfor %}
 
-
+      <ul class="list-group text-center mt-4">
+  <li class="list-group-item active" aria-current="true">Car_model</li>
+  {% for item in cars_model %}
+    <li class="list-group-item">
+      <a href="{% url 'cars_model' item.pk %}">{{ item.title }}</a>
+    </li>
+  {% endfor %}
 </ul>
-  </div>
-  <div class="col-9">
-    {% for item in aftosalon %} bu yerga ham yozsa bo'lar ekan
-<div class="container">
-  <div class="card ">
+
+
+    </div>
+    <div class="col-9 mt-4">
+      {% for item in cars %}
+      <div class="card mt-4 ">
     <div class="card-header">
-      {{item.id}}
+      {{item.model}}
     </div>
     <div class="card-body">
-      <div class="row">
-
-        <div class="col-4"> <!--ekran yarim qilib olish -->
-          {% if item.photo %}
-          <img src="{{item.photo.url}}"  alt="" width="350">
-          {% else %}
-          <img src="https://picsum.photos/200"  alt="" width="350"> <!--internetdan rasm oladi agar kampyuterda bo'lmasa-->
-          {% endif %}
-          </div>
-        <div class="col-8">
-  <!--    text turgan joy bu-->
+      {% if item.phone%}
+      <img src="{{item.photo.url}}" alt="" width="350">
+      {% else %}
+      <img src="http://picsum.photos/200" class="img-thumbnail" alt="">
+      {% endif %}
       <h5 class="card-title">{{item.title}}</h5>
-      <p class="card-text">{{item.context |safe|linebreaks|truncatewords:50}}</p><!--|safe|linebreaks|truncatewords:'50' bu qancha so'z chiqishi   -->
-      <!--    text turgan joy bu-->
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        </div>
+        <p class="card-text">{{item.yili  |safe|linebreaks|truncatewords:1}}</p>
+      <a href="{% url 'car_about' item.pk%}" class="btn btn-primary">TO'LIQ MALUMOT</a>
     </div>
     <div class="card-footer text-muted">
-      {{item.created_ed}}
+      {{item.created_ed | date:'Y-m-d H:i:s'}}
     </div>
   </div>
-</div>
-  {% endfor %}
-  </div>
+      {% endfor %}
+    </div>
 
 </div>
-
-
-
-
-
-
-<!--<div>-->
-<!--     <div class="card text-center">-->
-<!--  <div class="card-header">-->
-<!--      Category name-->
-<!--  </div>-->
-<!--  <div class="card-body">-->
-<!--    <h5 class="card-title">{{item.title}}</h5>-->
-<!--    <p class="card-text">{{item.context}}</p>-->
-<!--    <a href="#" class="btn btn-primary">Go somewhere</a>-->
-<!--  </div>-->
-<!--  <div class="card-footer text-muted">-->
-<!--    {{item.created_ed|date:'Y-m-d H:i:s'}}-->
-<!--  </div>-->
-<!--</div>-->
-<!--</div>-->
 
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
