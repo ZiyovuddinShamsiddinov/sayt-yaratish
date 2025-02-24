@@ -28,4 +28,4 @@ def car_about(request,model_id):
     context = {
         "cars_about": car,
     }
-    return render(request, 'car_new.html', context=context)
+    return render(request, 'News/car_new.html', context=context)
